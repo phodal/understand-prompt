@@ -1,6 +1,14 @@
 # ai-research
 
+AI 社区：https://huggingface.co/
+
 ## AI 生成
+
+Resources:
+
+模型：https://huggingface.co/lllyasviel/ControlNet/tree/main/models
+
+预编译：https://huggingface.co/kohya-ss/ControlNet-diff-modules
 
 ### SD
 
