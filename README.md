@@ -19,3 +19,11 @@ solo, 1girl, portrait, looking at viewer, masterpiece, best quality, 4k, 8k,blac
 负面提示词
 
 (worst quality, low quality, extra digits:1.2), (mutated hands and fingers, missing fingers:1.3), dark skin, monochrome, naked,(bad_prompt_version2:1), distant view, lip, Pregnant, maternity, pointy ears, realistic, tan, muscular, greyscale, monochrome, lineart, 2koma, 3koma, 4koma, manga, 3D, 3Dcubism, pablo picasso, disney, marvel, mutanted breasts, mutanted nipple, cropped, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name, lowres, trademark, watermark, title, text, deformed, bad anatomy, disfigured, mutated, extra limbs, ugly, missing limb, floating limbs, disconnected limbs, out of frame, mutated hands and fingers, poorly drawn hands, malformed hands, poorly drawn face, poorly drawn asymmetrical eyes, (blurry:1.4), duplicate (loli, petite, child, infant, toddlers, chibi, sd character, teen age:1.4), tsurime, helmet hair, evil smile, smug_face, naughty smile, multiple view, Reference sheet, (worst quality, low quality:1.4),
+
+#### 示例 2
+
+real-sship anime screencap, 1girl, solo, blonde, hoodie, medium_hair, glasses, ((small_breasts)), cleavage, partially_unzipped, face, perfect, masterpiece, ((masterpiece, portrait, pixiv)), artstation, in a garden, increased, image clarity, ultradetalied, anime line, blackline, ufotable studio, <lora:dreamshaper_331BakedVae:1>
+Negative prompt: bad anatomy, watermarks, text, signature, blur, messy, low quality, sketch by bad-artist, bad-image-v2-39000, necklace,
+Steps: 22, Sampler: Euler a, CFG scale: 9, Seed: 524248806, Size: 512x512, Model hash: 89d59c3dde, Model: model, ControlNet Enabled: True, ControlNet Module: hed, ControlNet Model: control_hed-fp16 [13fee50b], ControlNet Weight: 1
+
+Saved: 00006-524248806.png
