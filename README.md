@@ -100,7 +100,7 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 
 我们可以在 [https://civitai.com/](https://civitai.com/) 上找到更多的模型，不过因为年龄限制等原因，只建议你在安全的场所打开，不建议在公共场所打开。
 
-真实的人物由于版权的种种原因，所以这个软件 在二次元世界相当的流行。如下，是常见的提示词来描述模型的质量：里面可能包含一些不适词语，为了体现真实世界，这里并不打算屏蔽。
+真实的人物由于版权的种种原因，所以这个软件在二次元世界相当的流行。如下是常见的提示词来描述模型的质量，里面可能包含一些不适词语，为了体现真实世界，这里并不打算屏蔽。
 
 提示词 ：
 
@@ -123,7 +123,11 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 > lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low
 > quality, normal quality, jpeg artifacts, signature, watermark, username, blurry
 
-足够丰富的描述，可以帮助 AI 理解描述我们的需求。
+足够丰富的描述，可以帮助 AI 理解描述我们的需求：
+
+![Better Quality](images/better.jpeg)
+
+上图为 AI 生成，也是同样场景下，不屏蔽的结果。
 
 ### 小结
 
