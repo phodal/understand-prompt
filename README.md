@@ -1,4 +1,18 @@
-# ai-research
+# AI 初研
+
+新的 Macbook 采用的都是 A 卡，没有 CUDA：
+
+```
+pip install torch -f https://download.pytorch.org/whl/torch_stable.htm
+```
+
+以前是支持 ROCm：
+
+![](https://pytorch.org/assets/images/amd_rocm_blog.png)
+
+现在的版本不行了：
+
+![](https://pytorch.org/get-started/locally/)
 
 AI 社区：https://huggingface.co/
 
