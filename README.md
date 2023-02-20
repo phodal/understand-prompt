@@ -75,7 +75,7 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 
 生成的图片：
 
-![Openpose](images/image-with-hed.png)
+![Openpose](output/image-with-hed.png)
 
 配合一下参数调整（俗称炼丹）：
 
