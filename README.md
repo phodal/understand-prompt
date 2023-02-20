@@ -50,7 +50,6 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 <table>
   <tr>
     <td><img src="./output/women-backview-1.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/women-backview-2.jpeg" width="256px" height="384px"></td>
     <td><img src="./output/women-backview-3.jpeg" width="256px" height="384px"></td>
     <td><img src="./output/women-backview-4.jpeg" width="256px" height="384px"></td>
    </tr> 
