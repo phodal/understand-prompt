@@ -125,7 +125,7 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 
 足够丰富的描述，可以帮助 AI 理解描述我们的需求：
 
-![Better Quality](images/better.jpeg)
+![Better Quality](output/better.jpeg)
 
 上图为 AI 生成，也是同样场景下，不屏蔽的结果。
 
