@@ -1,4 +1,6 @@
-# AI 初研
+# Phodal 的 AI 研究（18 禁）
+
+PS：本文的图形部分因 “真实世界原因”，包含一些年龄受限的词汇，不建议未成年人阅读。
 
 新的 Macbook 采用的都是 A 卡，没有 CUDA：
 
@@ -14,7 +16,8 @@ pip install torch -f https://download.pytorch.org/whl/torch_stable.htm
 
 ![](https://pytorch.org/get-started/locally/)
 
-AI 社区：https://huggingface.co/
+- 通用的 AI 模型社区：https://huggingface.co/
+- Stable Diffusion AI 艺术模型社区：https://civitai.com/ （18 禁）
 
 ## AI 生成
 
@@ -24,20 +27,22 @@ Resources:
 
 预编译：https://huggingface.co/kohya-ss/ControlNet-diff-modules
 
-### SD
+### GitHub Copliot
 
-提示词 
+注释生成：
 
-solo, 1girl, portrait, looking at viewer, masterpiece, best quality, 4k, 8k,black_background,Simple background, 130mm f1.4 lens ,  (shiny skin:1.3),(vibrant colors), solo, (dalcefo, sakimistyle:1.1), (stare, realistic, lips, eyelashes:0.75), looking up, portrait, solo, upper body, good hand,4k, high-res, masterpiece, best quality, head:1.3,((Hasselblad photography)), finely detailed skin, sharp focus, (cinematic lighting), collarbone, morning, soft lighting, dynamic angle, [:(detailed face:1.2):0.2], medium breasts, cleavage, <lora:stLouisLuxuriousWheels_v1:1>,st. louis (luxurious wheels) (azur lane), hair ornament, earrings, necklace, portrait, silver dress, revealing clothes, looking at viewer, solo
+Saleforce 数据模型：[https://huggingface.co/Salesforce/codegen-6B-mono](https://huggingface.co/Salesforce/codegen-6B-mono)
+
+### 绘画：Stable Diffusion （敏感词汇部分）
+
+提示词里可能包含一些不适词语，为了体现真实世界，这里并不打算屏蔽。
+
+提示词 ：
+
+> modelshoot style, (wavy blue hair), ((half body portrait)), ((showing boobs, giant boobs, humongous breasts)), ((beautiful light makeup female sorceress in majestic blue dress)), photo realistic game cg, 8k, epic, (blue diamond necklace hyper intricate fine detail), symetrical features, joyful, majestic oil painting by Mikhail Vrubel, Atey Ghailan, by Jeremy Mann, Greg Manchess, WLOP, Charlie Bowater, trending on ArtStation, trending on CGSociety, Intricate, High Detail, Sharp focus, dramatic, photorealistic, black background, epic volumetric lighting, fine details, illustration, (masterpiece, best quality, highres), standing in majestic castle
 
 负面提示词
 
-(worst quality, low quality, extra digits:1.2), (mutated hands and fingers, missing fingers:1.3), dark skin, monochrome, naked,(bad_prompt_version2:1), distant view, lip, Pregnant, maternity, pointy ears, realistic, tan, muscular, greyscale, monochrome, lineart, 2koma, 3koma, 4koma, manga, 3D, 3Dcubism, pablo picasso, disney, marvel, mutanted breasts, mutanted nipple, cropped, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name, lowres, trademark, watermark, title, text, deformed, bad anatomy, disfigured, mutated, extra limbs, ugly, missing limb, floating limbs, disconnected limbs, out of frame, mutated hands and fingers, poorly drawn hands, malformed hands, poorly drawn face, poorly drawn asymmetrical eyes, (blurry:1.4), duplicate (loli, petite, child, infant, toddlers, chibi, sd character, teen age:1.4), tsurime, helmet hair, evil smile, smug_face, naughty smile, multiple view, Reference sheet, (worst quality, low quality:1.4),
+> (((simple background))),monochrome ,lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, lowres, bad anatomy, bad hands, text, error, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly,pregnant,vore,duplicate,morbid,mut ilated,tran nsexual, hermaphrodite,long neck,mutated hands,poorly drawn hands,poorly drawn face,mutation,deformed,blurry,bad anatomy,bad proportions,malformed limbs,extra limbs,cloned face,disfigured,gross proportions, (((missing arms))),(((missing legs))), (((extra arms))),(((extra legs))),pubic hair, plump,bad legs,error legs,username,blurry,bad feet, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry 
 
-#### 示例 2
 
-real-sship anime screencap, 1girl, solo, blonde, hoodie, medium_hair, glasses, ((small_breasts)), cleavage, partially_unzipped, face, perfect, masterpiece, ((masterpiece, portrait, pixiv)), artstation, in a garden, increased, image clarity, ultradetalied, anime line, blackline, ufotable studio, <lora:dreamshaper_331BakedVae:1>
-Negative prompt: bad anatomy, watermarks, text, signature, blur, messy, low quality, sketch by bad-artist, bad-image-v2-39000, necklace,
-Steps: 22, Sampler: Euler a, CFG scale: 9, Seed: 524248806, Size: 512x512, Model hash: 89d59c3dde, Model: model, ControlNet Enabled: True, ControlNet Module: hed, ControlNet Model: control_hed-fp16 [13fee50b], ControlNet Weight: 1
-
-Saved: 00006-524248806.png
