@@ -37,7 +37,7 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 > by the warm hues of the sunset. Her gaze is fixed on the distance, as if pondering the meaning of life and the endless 
 > possibilities of the future.
 
-重复了 N 次之后，你会得到你想要的成功的照片，当然也会有失败的出现：
+重复了 N 次之后，你会得到你想要的成功的照片，当然也会有失败的出现（因为没有配置 negative prompt 过滤失败的情况）：
 
 ![Failure](./output/failure-seeds.jpeg)
 
@@ -126,6 +126,8 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 
 ## 文章：如何围绕特定主题思考？
 
+结合一下先前 Stable Diffusion 的无数次的失败经验，我们应该先找好一个合适的框架来跑 ChatGPT。
+
 在编写内容的内容，我们会有各种思路和原则：STAR、金字塔原理、5W1H等等。
 
 我们可以以 STAR （Situation（情景）Task（任务）、Action（行动）和 Result（结果））可以作为与 ChatGPT 会话的基础：
@@ -190,9 +192,15 @@ ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架
 5. 注重原创性和独特性。尽管 ChatGPT 能够生成大量的文章，但是为了在博客大赛中脱颖而出，还需要注重文章的原创性和独特性，尽可能地突出自己的风格和思想。
 
 
-## 代码生成：GitHub Copliot
+考虑到 ChatGPT 的代码并不那么准确，让我们使用 GitHub Copilot 生成更多的内容。
+
+## 代码生成：GitHub Copilot
 
 注释生成：
+
+### Markdown First
+
+
 
 ### 代码生成开源模型
 
