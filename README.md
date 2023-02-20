@@ -82,13 +82,11 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
   <tr>
     <td><img src="./output/samples/01.jpeg" width="256px" height="384px"></td>
     <td><img src="./output/samples/02.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/03.jpeg" width="192px" height="256px"></td>
     <td><img src="./output/samples/04.jpeg" width="256px" height="384px"></td>
    </tr> 
    <tr>
     <td><img src="./output/samples/05.jpeg" width="256px" height="384px"></td>
     <td><img src="./output/samples/06.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/07.jpeg" width="256px" height="384px"></td>
     <td><img src="./output/samples/08.jpeg" width="256px" height="384px"></td>
   </tr>
 </table>
