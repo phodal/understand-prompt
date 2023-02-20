@@ -60,9 +60,21 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 
 ### 加个 Pose：结合 ControlNet
 
-再使用上面的代码作为示例：
+在我写完文章的时候，改了一个简单的 prompt
 
-![Openpose](output/image-with-canny.jpeg)
+
+```women back view without face standing on the sandy beach,bodycov flowin dress, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, hinese style clothes, black hair,  sunset red to blue gradient sky
+```
+
+对应的 negative prompt 是：
+
+```
+(((simple background))),monochrome ,lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, lowres, bad anatomy, bad hands, text, error, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly,pregnant,vore,duplicate,morbid,mut ilated,tran nsexual, hermaphrodite,long neck,mutated hands,poorly drawn hands,poorly drawn face,mutation,deformed,blurry,bad anatomy,bad proportions,malformed limbs,extra limbs,cloned face,disfigured,gross proportions, (((missing arms))),(((missing legs))), (((extra arms))),(((extra legs))),pubic hair, plump,bad legs,error legs,username,blurry,bad feet
+```
+
+生成的图片：
+
+![Openpose](images/image-with-hed.png)
 
 配合一下参数调整（俗称炼丹）：
 
