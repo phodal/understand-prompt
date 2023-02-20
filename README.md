@@ -191,7 +191,11 @@ phodal：我想写一篇文章，主题是《如何用 ChatGPT 写一篇文章�
 
 ### 构建框架（frameworks）
 
-ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架，以构建简单的反馈回路。于是，我开始教他 DDD：
+ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架，以构建简单的反馈回路。于是，我开始教他 DDD，然后相互学习：
+
+![DDD Copilot](images/ddd-copilot-1.png)
+
+不过，ChatGPT 和上面的图片一样，经常丢失一些上下文。
 
 phodal: 在这个 TicketOrder 聚合里，他应该包含哪些 API ？
 
