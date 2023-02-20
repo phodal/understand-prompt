@@ -191,8 +191,22 @@ phodal：我想写一篇文章，主题是《如何用 ChatGPT 写一篇文章�
 
 ### 构建框架（frameworks）
 
-ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架，以构建简单的反馈回路。
+ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架，以构建简单的反馈回路。于是，我开始教他 DDD：
 
+phodal: 在这个 TicketOrder 聚合里，他应该包含哪些 API ？
+
+在 TicketOrder 聚合里，可以包含以下一些 API：
+
+1. createOrder()：创建一个新的订单，可以接收顾客信息、场次信息、座位信息等参数，并返回一个唯一的订单号。
+2. cancelOrder(orderId)：取消某个订单，需要提供订单号。
+3. getOrder(orderId)：获取某个订单的详细信息，需要提供订单号。
+4. reserveSeats(showTimeId, seatIds)：在某个场次中预留座位，需要提供场次号和座位号。
+5. confirmOrder(orderId)：确认订单，此时座位被锁定并且订单状态被改为已确认。
+6. payOrder(orderId, paymentInfo)：支付订单，需要提供订单号和支付信息。
+7. refundOrder(orderId)：退票，需要提供订单号并且只能在订单状态为已确认时进行。
+8. updateOrder(orderId, updateInfo)：修改订单信息，可以更新顾客信息、场次信息、座位信息等，需要提供订单号和更新内容。
+
+基本的 API 可以满足电影院订票业务的需求，但具体实现还需要根据业务场景和需求进行细化和调整。
 
 ### 其它小建议：
 
