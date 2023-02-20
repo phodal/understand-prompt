@@ -1,6 +1,6 @@
 # 基于编程、绘画、写作的 AI 探索与总结（18 禁） —— 2023 年 2 月版
 
-PS：本文的图形部分因 “真实世界原因”，包含一些年龄受限的词汇，不建议未成年人阅读。
+PS：本文的图形部分因 “真实世界原因”，包含一些年龄受限的词汇，建议未成年人在监护人陪同下阅读。
 
 就当前节点（2023.02.22）而言，我虽然研究过一段时间传统的机器学习，但是并不擅长深度学习等领域，所以很多 AI 领域相关的词汇，我是不擅长的，只为自己总结一下，方便在未来更新自己的认识。
 
@@ -10,7 +10,7 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 2. 写作：chat 2 article。结合 ChatGPT 讲述围绕特定主题的内容创作。
 3. 编程：comment 2 code。结合 GitHub Copilot 如何加速日常的编程活动。
 
-总体来说，**AI 相当于美国队长的实力，遇强则强，遇弱则弱**，关键其实在于 Prompt。
+总体来说，**AI 相当于美国队长的实力，遇强则强，遇弱则弱**，关键其实在于 Prompt。所以，如何更好地完善 prompt，实现 prompt 工程就是：如何更好地使用 AI 的基础。
 
 ## 图形生成：如何描述一张照片？？
 
@@ -58,12 +58,18 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 
 诸如于采用 [Magic Prompt](https://huggingface.co/spaces/Gustavosta/MagicPrompt-Stable-Diffusion)。
 
-### 加个 Pose：结合 ControlNet
+### 精准控图：结合 ControlNet
 
-在我写完文章的时候，改了一个简单的 prompt
+由于生成的姿势是随机的、无法控制，所以我就引入了 ControlNet 插件 ——用来实现骨骼绑定、精准控线、线稿上色、依据深度图结构透视精准重绘等。现在，就能结合我们做的创作来完善生成的图形，诸如于我们绘制草图、或者输入一张原始图片，就可以生成我们预期的效果：
+
+最后，生成的图片如下：
+
+![Openpose](output/image-with-hed.png)
+
+在我写完文章的时候，又修改了一下 prompt：
 
 
-```
+```markdown
 women back view without face standing on the sandy beach, bodycov full skirt, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, black hair, sunset red to blue gradient sky
 ```
 
@@ -73,11 +79,7 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 (((simple background))),monochrome ,lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, lowres, bad anatomy, bad hands, text, error, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly,pregnant,vore,duplicate,morbid,mut ilated,tran nsexual, hermaphrodite,long neck,mutated hands,poorly drawn hands,poorly drawn face,mutation,deformed,blurry,bad anatomy,bad proportions,malformed limbs,extra limbs,cloned face,disfigured,gross proportions, (((missing arms))),(((missing legs))), (((extra arms))),(((extra legs))),pubic hair, plump,bad legs,error legs,username,blurry,bad feet
 ```
 
-生成的图片：
-
-![Openpose](output/image-with-hed.png)
-
-配合一下参数调整（俗称炼丹）：
+效果凑合着，还是不错的。然后，我们可以做更多的尝试，配合一下参数调整（俗称炼丹）：
 
 <table>
   <tr>
@@ -127,7 +129,7 @@ women back view without face standing on the sandy beach, bodycov full skirt, ed
 
 ![Better Quality](output/better.jpeg)
 
-上图为 AI 生成，也是同样场景下，不屏蔽的结果。
+上图为 AI 生成，也是同样场景下，不屏蔽的结果 —— 其原因是大部分的模型库加入了很多 18 禁的内容。
 
 ### 小结
 
@@ -302,8 +304,12 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 ### 其它：代码生成开源模型
 
-Saleforce
-数据模型：[https://huggingface.co/Salesforce/codegen-6B-mono](https://huggingface.co/Salesforce/codegen-6B-mono)
+我也尝试了下 Saleforce
+的代码模型：[https://huggingface.co/Salesforce/codegen-6B-mono](https://huggingface.co/Salesforce/codegen-6B-mono)，但是不能在我的 MBP 上跑上来，有些遗憾。
+
+## 总结：AI 就像占卜
+
+你可能无法预期输出的是啥，总会有各种惊喜。
 
 ## 其它：Macbook Pro 的吐槽
 
