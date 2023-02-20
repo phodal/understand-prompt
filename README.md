@@ -216,11 +216,13 @@ GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，
 
 但是，也并非不可用，我们可以使用它来生成一些代码片段，以便于我们进行修改。
 
-### 结合 ChatGPT
+### 完整示例：DDD + ChatGPT + Copilot
 
-如下是 ChatGPT 生成的 API 列表：
+如结合 Chat GPT 我们可以完成代码的前置设计（当然有些不靠谱）：
 
-写行注释告诉 Copilot：`convert to markdown table`，然后我们就有了：
+![ChatGPT DDD](images/chatgpt-ddd.png)
+
+复制生成的 API，写行注释告诉 Copilot：`convert to markdown table`，然后我们就有了：
 
 | API    | 描述             | HTTP方法 | URL                                           | 参数     | 返回值         |
 |--------|----------------|--------|-----------------------------------------------|--------|-------------|
@@ -233,7 +235,7 @@ GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，
                                          
 接下来，我们可以使用 Spring + Copilot 来生成一些代码片段，以便于我们进行修改：
 
-![github-copilot Sample](images/github-copilot-2.png)
+![github-copilot Sample](images/github-sampe-2.png)
 
 在有足够类相关信息的情况下，诸如于，我们提供一个注释：
 
@@ -247,7 +249,7 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 它生成的代码会更加准确：
 
-![GitHub sample 4](images/github-copilot-4.png)
+![GitHub sample 4](images/github-sampe-4.png)
 
 而如果我们添加了对应的 Exception 的处理注释：`check the schedule is valid, the seats are available, then create the order, if the schedule is not valid, throw NotScheduleAvailableException`，代码进一步转化为：
 
@@ -272,7 +274,7 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 在另外一些场景下，如果你的函数名和参数名都是英文，那么 Copilot 生成的代码也会更加准确：
 
-![GitHub sample 5](images/github-copilot-5.png)
+![GitHub sample 5](images/github-sampe-5.png)
 
 而在单元测试的场景下，Copilot 更加强大和智能，它能够根据你的测试代码，生成更多的测试代码。
 
@@ -289,7 +291,7 @@ Saleforce
 
 诸如于 PyTorch，以前是支持 ROCm 加速的：
 
-![](https://pytorch.org/assets/images/amd_rocm_blog.png)
+![ROCm](https://pytorch.org/assets/images/amd_rocm_blog.png)
 
 现在的版本不行了：https://pytorch.org/get-started/locally/ 。
 
