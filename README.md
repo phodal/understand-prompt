@@ -64,7 +64,7 @@ PS：本文的图形部分因 “真实世界原因”，包含一些年龄受�
 
 
 ```
-women back view without face standing on the sandy beach,bodycov flowin dress, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, hinese style clothes, black hair,  sunset red to blue gradient sky
+women back view without face standing on the sandy beach, bodycov full skirt, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, black hair, sunset red to blue gradient sky
 ```
 
 对应的 negative prompt 是：
@@ -204,18 +204,79 @@ ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架
 4. 保持简洁明了。在使用 ChatGPT 进行写作时，需要尽量保持简洁明了，避免使用过于复杂的句式和词汇，以便读者更好地理解文章内容。
 5. 注重原创性和独特性。尽管 ChatGPT 能够生成大量的文章，但是为了在博客大赛中脱颖而出，还需要注重文章的原创性和独特性，尽可能地突出自己的风格和思想。
 
-
 考虑到 ChatGPT 的代码并不那么准确，让我们使用 GitHub Copilot 生成更多的内容。
 
 ## 代码生成：GitHub Copilot
 
-注释生成：
+GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，它可以根据你的代码，生成更多的代码。
 
-### Markdown First
+![Samples](images/github-copilot-1.png)
 
+所以，对于 Markdown 本身来说，它也能提供一些帮助。当然了，在这方向它没有 ChatGPT 那么强大，经常会出现一些奇怪的重复代码。
 
+但是，也并非不可用，我们可以使用它来生成一些代码片段，以便于我们进行修改。
 
-### 代码生成开源模型
+### 结合 ChatGPT
+
+如下是 ChatGPT 生成的 API 列表：
+
+写行注释告诉 Copilot：`convert to markdown table`，然后我们就有了：
+
+| API    | 描述             | HTTP方法 | URL                                           | 参数     | 返回值         |
+|--------|----------------|--------|-----------------------------------------------|--------|-------------|
+| 创建订单   | 创建一个新的订单       | POST   | /ticket-orders                                | 创建订单信息 | 订单ID        |
+| 查询订单   | 查询一个已存在的订单     | GET    | /ticket-orders/{orderId}                      | 订单ID   | 订单信息        |
+| 取消订单   | 取消一个已存在的订单     | DELETE | /ticket-orders/{orderId}                      | 订单ID   | 取消成功或失败信息   |
+| 添加座位   | 向一个已存在的订单添加座位  | POST   | /ticket-orders/{orderId}/seats                | 座位信息   | 座位添加成功或失败信息 |
+| 移除座位   | 从一个已存在的订单中移除座位 | DELETE | /ticket-orders/{orderId}/seats/{seatId}       | 座位ID   | 座位移除成功或失败信息 |
+| 查询可用座位 | 查询某个场次电影的可用座位  | GET    | /cinema-schedule/{scheduleId}/available-seats | 场次ID   | 可用座位信息      |
+                                         
+接下来，我们可以使用 Spring + Copilot 来生成一些代码片段，以便于我们进行修改：
+
+![github-copilot Sample](images/github-copilot-2.png)
+
+在有足够类相关信息的情况下，诸如于，我们提供一个注释：
+
+```kotlin
+@PostMapping
+fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
+    // check the schedule is valid, the seats are available, then create the order
+
+}
+```
+
+它生成的代码会更加准确：
+
+![GitHub sample 4](images/github-copilot-4.png)
+
+而如果我们添加了对应的 Exception 的处理注释：`check the schedule is valid, the seats are available, then create the order, if the schedule is not valid, throw NotScheduleAvailableException`，代码进一步转化为：
+
+```kotlin
+@PostMapping
+fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
+    // check the schedule is valid, the seats are available, then create the order, if the schedule is not valid, throw NotScheduleAvailableException
+    // check the schedule is valid
+    val schedule = cinemaScheduleService.getSchedule(ticketOrder.scheduleId)
+    if (schedule == null) {
+        throw NotScheduleAvailableException()
+    }
+    // check the seats are available
+    val availableSeats = cinemaScheduleService.getAvailableSeats(ticketOrder.scheduleId)
+    if (!availableSeats.containsAll(ticketOrder.seats)) {
+        throw NotSeatAvailableException()
+    }
+    // create order
+    return tickerOrderApplicationService.createOrder(ticketOrder)
+}
+```
+
+在另外一些场景下，如果你的函数名和参数名都是英文，那么 Copilot 生成的代码也会更加准确：
+
+![GitHub sample 5](images/github-copilot-5.png)
+
+而在单元测试的场景下，Copilot 更加强大和智能，它能够根据你的测试代码，生成更多的测试代码。
+
+### 其它：代码生成开源模型
 
 Saleforce
 数据模型：[https://huggingface.co/Salesforce/codegen-6B-mono](https://huggingface.co/Salesforce/codegen-6B-mono)
