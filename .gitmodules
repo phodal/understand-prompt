@@ -1,0 +1,3 @@
+[submodule "3rd-party/prompt-engine"]
+	path = 3rd-party/prompt-engine
+	url = https://github.com/microsoft/prompt-engine
