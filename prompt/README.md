@@ -12,6 +12,10 @@
 
 ## 人类如何思考问题？
 
+人类相对于其他动物更擅长于类比、概念抽象、符号化等高级认知活动，这些认知活动可以帮助人类在面对新问题时，从已有的知识和经验中找到相似的部分，快速理解和解决新问题。
+
+而对于机器来说，机器学习算法通过大量的数据和计算，学习到数据中的规律和模式，并将这些规律和模式应用到新的数据中，从而实现预测和决策等功能。例如，机器学习算法可以通过大量的图像数据学习到图像的特征，并在新的图像中识别出相应的物体；也可以通过大量的自然语言数据学习到语言的规律，从而生成自然语言文本。
+
 Cynefin 框架
 
 - 明显的问题 => 
@@ -139,6 +143,15 @@ Robot:
 
 ## By demonstration
 
+<table>
+  <tr>
+    <td><img src="./images/openpose-1.png" width="256px" height="256px"></td>
+    <td><img src="./images/openpose-gen-1.png" width="256px" height="256px"></td>
+    <td><img src="./images/openpose-gen-2.png" width="256px" height="256px"></td>
+   </tr> 
+</table>
+
+
 ![](https://files.readme.io/aa1f3dd-PromptEngineering_Visual_8.svg)
 
 示例：
@@ -150,59 +163,13 @@ English: The weather is lovely!
 Roish:
 ```
 
-
 # 混合模式
 
+如何让 AI 再生成内容？
 
-## Multiple
+![](images/chatgpt-bootstrap-article.png)
 
-```
-我们来玩一个编程游戏名为 wula，一共分为五步，对应的步骤如下：
-
-第一步. 我告诉你的问题会以 """wula:""" 开头，你需要然后分析一下这个问题，然后写一个 200 字左右的内容介绍一下问题，内容的开头形式是："""简介：这是个 {} 的问题，通常可以：{}""" 。
-第二步. 你用 JavaScript 编写一下第一步问题的代码，并输出对应的代码，再写 200 字介绍一下代码。
-第三步. 你扮演一下 JavaScript Console，执行一下第二步写的代码；如果没有数据，你就随机生成一些数据。
-第四步. 如果代码错误或者不能运行，你需要输出错误，同时回到第二步重新开始，直到最后成功；如果代码可以工作，则输出：OK
-第五步. 用 100 字总结一下问题。
-
-我来做一个示例：
-
-
-"""
-wula: 头共10，足共28，鸡兔各几只？
-
-简介：这是一个鸡兔同笼问题，通常可以用代数法解决。
-
-## 鸡兔同笼
-
-```javascript
-// 计算鸡兔数量的函数
-function calcAnimals(heads, legs) {
-  const rabbitCount = (legs - 2 * heads) / 2;
-  const chickenCount = heads - rabbitCount;
-  return {"chicken": chickenCount, "rabbit": rabbitCount};
-}
-
-// 计算鸡兔数量
-const result = calcAnimals(10, 28);
-
-// 输出结果
-console.log(result);
-/`/`/`
-
-代码的输出结果是：{}
-
-## 总结
-
-{}
-
-"""
-
-明白这个游戏怎么玩了吗？
-```
-
-
-接着问他：wula: 给定一组数字，如何找到其中的奇数？
+## 组合模式（待定）
 
 
 ```
