@@ -36,10 +36,16 @@ Cynefin 框架
 ### Instruction specification ??
 
 
+# 基础模式：概念与类比
 
-## 基础模式：概念与类比
+四种基础模式？：
 
-### By specific
+- By example (例如模式)：在这种模式下，我们给模型提供一些示例文本，模型需要生成与示例文本类似的文本。这种模式通常用于生成类似于给定示例的文本，例如自动生成电子邮件、产品描述、新闻报道等。示例文本可以是单个句子或多个段落，具体取决于任务的要求。
+- By instruction (指令模式)：在这种模式下，我们给模型提供一些明确的指令，模型需要根据这些指令生成文本。这种模式通常用于生成类似于技术说明书、操作手册等需要明确指令的文本。指令可以是单个句子或多个段落，具体取决于任务的要求。
+- By specific (特定模式)：在这种模式下，我们给模型提供一些特定信息，例如问题或关键词，模型需要生成与这些信息相关的文本。这种模式通常用于生成答案、解释或推荐等。特定信息可以是单个问题或多个关键词，具体取决于任务的要求。
+- By proxy（代理模式）：在这种模式下，可以充当了一个代理，代表某个实体（例如人、角色、机器人等）进行操作或交互。代理模式的核心思想是引入一个中介对象来控制对实际对象的访问，从而实现一定程度上的隔离和保护。诸如于在 ChatGPT 中，"act as xxx" 可以让 ChatGPT 充当一个代理，扮演某个角色或实体的身份，以此来处理与该角色或实体相关的任务或请求。
+
+## By specific
 
 > `翻译`、`告诉我`
 
@@ -49,7 +55,17 @@ Cynefin 框架
 - 翻译一下：永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。
 - 转为现代汉语：永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。
 
-### By Instruction
+### 子模式
+
+- Completion-based prompts（补全型提示）：这种模式下，用户提供一部分的文本，ChatGPT 根据这些文本的上下文，自动生成下一步文本的建议。
+- Classification-based prompts（分类型提示）：这种模式下，用户提供一个问题或任务描述，ChatGPT 根据任务描述生成相应的答案或解决方案。
+- Generation-based prompts（生成型提示）：这种模式下，用户提供一些初始信息，ChatGPT 基于这些信息自动生成新的文本，可以是文本摘要、机器翻译、对话生成等。
+- Translation-based prompts（翻译型提示）：这种模式下，用户提供一个文本，ChatGPT 将其翻译成另一种语言。
+- Question-answering prompts（问答型提示）：这种模式下，用户提供一个问题，ChatGPT 给出相应的答案。
+- Conversation-based prompts（对话型提示）：这种模式下，用户可以与 ChatGPT 进行对话，ChatGPT 根据上下文生成回答。
+- Summarization-based prompts（摘要型提示）：这种模式下，用户提供一段文本，ChatGPT 生成该文本的摘要。
+
+## By Instruction
 
 示例：
 
@@ -90,15 +106,15 @@ Cynefin 框架
     获得了几个 Jupyter 代码段以及相关经验
 ```
 
+## By proxy
 
-### By proxy
 
 
 ### Output Driven
 
 在提示的开头包含所有相关信息，包括任何上下文或期望的结果，以及 长度，格式样式等。诸如于：`用 100 字总结一下 ChatGPT`。
 
-### By demonstration
+## By demonstration
 
 ![](https://files.readme.io/aa1f3dd-PromptEngineering_Visual_8.svg)
 
@@ -111,7 +127,7 @@ English: The weather is lovely!
 Roish:
 ```
 
-## 模式
+# 混合模式
 
 ### Role Play
 
