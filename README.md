@@ -331,11 +331,8 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 现在的版本不行了：https://pytorch.org/get-started/locally/ 。
 
-## 相关资源
 
-[Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
-
-### 本文相关资源
+## 本文相关资源
 
 AI 生成图片：
 
@@ -352,3 +349,26 @@ ControlNet 加强：
 
 - 模型：https://huggingface.co/lllyasviel/ControlNet
 - 预编译：https://huggingface.co/kohya-ss/ControlNet-diff-modules
+
+# Prompt Engineering
+
+
+## 相关资源 Prompt Engineering
+
+[Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
+
+### Code
+
+- https://github.com/microsoft/prompt-engine, This repo contains an NPM utility library for creating and maintaining prompts for Large Language Models (LLMs).
+
+### 安全问题
+
+- Prompt injection: [Exploring Prompt Injection Attacks])(https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+
+
+### 相关文章
+
+ - [How to get Codex to produce the code you want!](https://microsoft.github.io/prompt-engineering/)
+
+
+
