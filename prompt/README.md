@@ -11,30 +11,93 @@
 ![Prompt Enginneering](https://files.readme.io/384b77e-PromptEngineering_Visual_1.svg)
 
 
-## 策略：Task specification
+## 策略
 
-来源：[Methods of prompt programming](https://generative.ink/posts/methods-of-prompt-programming/#metaprompt-demonstrations)
+### Task specification
 
-## 元素模式
+来源：[Methods of prompt programming](https://generative.ink/posts/methods-of-prompt-programming/)
 
-### By Instruction
+### Instruction specification ??
+
+
+
+## 基础模式：概念与类比
+
+### By specific
 
 > `翻译`、`告诉我`
 
-phodal： 定义一下 prompt 工程 
+诸如于开头的：
 
+- 定义一下 prompt 工程
+- 翻译一下：永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。
+- 转为现代汉语：永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。
+
+### By Instruction
+
+示例：
+
+
+```markdown
+使用 STAR 原则与下面的格式总结一下这段话：
+
+"""
+最近几天，因为工作 + 兴趣的原则，我在研究用 text 2 image 来展示如何演进 prompt、用 text 2 article 来展示充足 prompt 的优点、结合 GitHub Copliot 来实现 prompt 完成工作。然后，我在本地部署了一个 Stable Diffusion、使用 ChatGPT 写作展示 text 2 article、在 IDEA 中使用 GitHub Copilot。最后，得到了多篇文章和好多的文章阅读量、几个 Jupyter 代码段、以及一些经验。
+"""
+
+情境(Situation): 
+任务(Task): <comma_separated_list_of_task>
+行动(Action):  -||-
+结果(Result):  -||-
+```
+
+输出文本时要注意中英文之间插入空格，留出间隔，诸如于 """Hello 你好"""，用这种方式输出一下刚才的文本：
+
+```markdown
+情境(Situation): 最近几天，在工作和兴趣的驱动下，研究如何使用 text 2 image 和 text 2 article 展示 prompt 演进以及结合 GitHub Copliot 来完成工作。
+
+任务(Task):
+
+    研究如何使用 text 2 image 展示 prompt 的演进过程
+    研究如何使用 text 2 article 展示 prompt 的优点
+    结合 GitHub Copliot 来实现 prompt 完成工作
+
+行动(Action):
+
+    本地部署了一个稳定的 Diffusion 模型
+    使用 ChatGPT 撰写文章来展示 text 2 article 的效果
+    在 IDEA 中使用 GitHub Copilot
+
+结果(Result):
+
+    得到了多篇文章和很多的文章阅读量
+    获得了几个 Jupyter 代码段以及相关经验
+```
 
 
 ### By proxy
 
+
+### Output Driven
+
+在提示的开头包含所有相关信息，包括任何上下文或期望的结果，以及 长度，格式样式等。诸如于：`用 100 字总结一下 ChatGPT`。
+
 ### By demonstration
 
-![](https://files.readme.io/3e99dda-PromptEngineering_Visual_3.svg)
+![](https://files.readme.io/aa1f3dd-PromptEngineering_Visual_8.svg)
 
-## 混合模式
+示例：
 
+```markdown
+English: Writing about language models is fun.
+Roish: Writingro aboutro languagero modelsro isro funro.
+English: The weather is lovely!
+Roish:
+```
 
-###  Role Play
+## 模式
+
+### Role Play
 
 在 [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) 中：
 
@@ -44,12 +107,22 @@ Robot:
 
 > ChatGPT: I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd
 
+## Practise
 
+参考：[Best practices for prompt engineering with OpenAI API](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
+
+### 减少不精确的描述
 
 ## 相关资源 Prompt Engineering
 
+- [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
 - [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering)
 - [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts)
+
+### 入门
+
+- [A Complete Introduction to Prompt Engineering For Large Language Models](https://www.mihaileric.com/posts/a-complete-introduction-to-prompt-engineering/)
+- [Prompt Engineering Guide: How to Engineer the Perfect Prompts](https://richardbatt.co.uk/prompt-engineering-guide-how-to-engineer-the-perfect-prompts/)
 
 ### Code
 
@@ -57,7 +130,7 @@ Robot:
 
 ### 安全问题
 
-- Prompt injection: [Exploring Prompt Injection Attacks])(https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
+- Prompt injection: [Exploring Prompt Injection Attacks](https://research.nccgroup.com/2022/12/05/exploring-prompt-injection-attacks/)
 
 
 ### 相关文章
