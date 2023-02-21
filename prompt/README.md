@@ -10,6 +10,22 @@
 
 ![Prompt Enginneering](https://files.readme.io/384b77e-PromptEngineering_Visual_1.svg)
 
+## 人类如何思考问题？
+
+Cynefin 框架
+
+- 明显的问题 => 
+    - 概念
+    - Summarize
+    - 分类
+- 繁杂的问题 => 
+    - 类比
+    - 模板化
+    - Instruction
+- 复杂的问题 =>
+    - 试探 -> 感知 -> 响应
+- 混沌的问题 =>
+    - 运动 -> 感知 -> 响应
 
 ## 策略
 
@@ -204,7 +220,6 @@ console.log(result);
 
 明白这个游戏怎么玩了吗？
 ```
-
 
 
 ## Practise
