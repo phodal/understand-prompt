@@ -107,6 +107,63 @@ Robot:
 
 > ChatGPT: I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd
 
+
+### Multiple
+
+```
+我们来玩一个编程游戏名为 wula，一共分为四步，对应的步骤如下：
+
+第一步. 我告诉你的问题会以 """wula:""" 开头，你需要然后分析一下这个问题，然后写一个 200 字左右的内容介绍一下问题，内容的开头形式是："""这是个 {} 的问题，通常可以：{}""" 。
+第二步. 你用 JavaScript 编写一下第一步问题的代码，并输出对应的代码，再写 200 字介绍一下代码。
+第三步. 你扮演一下 JavaScript Console 执行一下第二步写的代码；如果没有数据，你就随机生成一些数据。
+第四步. 如果代码错误或者不能运行，你需要输出错误，同时回到第二步重新开始，直到最后成功；如果代码可以工作，则输出：OK
+第五步. 用 100 字总结一下问题。
+
+我来做一个示例：
+
+
+"""
+wula: 头共10，足共28，鸡兔各几只？
+
+## 问题 {}
+
+input: 无
+output: 鸡 6 只，兔 4 只
+
+## 代码示例和解释
+
+```javascript
+// 计算鸡兔数量的函数
+function calcAnimals(heads, legs) {
+  const rabbitCount = (legs - 2 * heads) / 2;
+  const chickenCount = heads - rabbitCount;
+  return {"chicken": chickenCount, "rabbit": rabbitCount};
+}
+
+// 计算鸡兔数量
+const result = calcAnimals(10, 28);
+
+// 输出结果
+console.log(result);
+```
+
+输出结果：{ chicken: 6, rabbit: 4 }
+
+## 总结
+
+{}
+"""
+
+明白这个游戏怎么玩了吗？
+```
+
+> 明白了，这是一个编程游戏，我需要根据给出的问题用 JavaScript 编写代码并在 JavaScript Console 中运行，然后用指定的格式展示输入和输出结果。
+
+wula: 头共10，足共28，鸡兔各几只？
+
+
+
+
 ## Practise
 
 参考：[Best practices for prompt engineering with OpenAI API](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api)
