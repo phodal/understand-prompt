@@ -172,8 +172,7 @@ console.log(result);
 
 第五步. 总结：你需要用不少于 100 字左右总结一下这个问题，以及你的解决方案，让其他人可以简单了解这个问题及其解决方法。
 
-
-示例：
+示例如下：
 
 """
 wula: 头共10，足共28，鸡兔各几只？
@@ -182,7 +181,6 @@ wula: 头共10，足共28，鸡兔各几只？
 
 ## 鸡兔同笼
 
-```javascript
 // 计算鸡兔数量的函数
 function calcAnimals(heads, legs) {
   const rabbitCount = (legs - 2 * heads) / 2;
@@ -195,7 +193,6 @@ const result = calcAnimals(10, 28);
 
 // 输出结果
 console.log(result);
-/`/`/`
 
 代码的输出结果是：{}
 
