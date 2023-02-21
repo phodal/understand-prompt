@@ -1,4 +1,4 @@
-#  从 Prompt Engineering 到 Prompt 编程
+# Prompt 编写模式：用 prompt 构建思维框架
 
 在人类世界里，我们是由概念构建的，语言本身就是在解释概念。在 AI 世界里，它也是类似的：
 
