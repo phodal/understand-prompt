@@ -35,7 +35,6 @@ Cynefin 框架
 
 ### Instruction specification ??
 
-
 # 基础模式：概念与类比
 
 四种基础模式？：
@@ -64,6 +63,12 @@ Cynefin 框架
 - Question-answering prompts（问答型提示）：这种模式下，用户提供一个问题，ChatGPT 给出相应的答案。
 - Conversation-based prompts（对话型提示）：这种模式下，用户可以与 ChatGPT 进行对话，ChatGPT 根据上下文生成回答。
 - Summarization-based prompts（摘要型提示）：这种模式下，用户提供一段文本，ChatGPT 生成该文本的摘要。
+
+
+### Output Driven
+
+在提示的开头包含所有相关信息，包括任何上下文或期望的结果，以及 长度，格式样式等。诸如于：`用 100 字总结一下 ChatGPT`。
+
 
 ## By Instruction
 
@@ -108,11 +113,29 @@ Cynefin 框架
 
 ## By proxy
 
+> Proxy 模式是指用户可以要求 ChatGPT 以特定的身份、角色或者身份扮演某个特定的人、角色或对象来生成回答。这种模式通常用于模拟某个特定人物的语言风格和语境，生成特定情境下的对话、回答或其他形式的文本。
+
+当使用 ChatGPT 来代替某个人或实体时，可以使用 by proxy 模式。
+
+例如，可以使用以下 prompt 提问 ChatGPT 代替某个公司的客服：
+
+> 我是一家餐饮公司的客服，有顾客反馈说我们的菜品质量有问题，我们该怎么处理呢？
+
+在这种情况下，ChatGPT 会扮演客服的角色，并根据提示来回答，从而帮助公司解决问题。ChatGPT 可以使用类似以下的方式来回答：
+
+> 您好，很抱歉听到您的反馈。我们将会仔细审核您的反馈，并尽快采取相应措施来解决这个问题。为此，我们需要更多的信息来进一步了解您的反馈，包括哪些菜品有问题，具体问题是什么等。请问您可以提供更多的信息吗？
+
+这种方式可以通过让 ChatGPT 扮演某个实体的角色，例如客服、销售代表等等，来帮助用户解决问题。
 
 
-### Output Driven
+在 [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) 中：
 
-在提示的开头包含所有相关信息，包括任何上下文或期望的结果，以及 长度，格式样式等。诸如于：`用 100 字总结一下 ChatGPT`。
+> Human: Act as a Linux Terminal
+
+Robot: 
+
+> ChatGPT: I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd
+
 
 ## By demonstration
 
@@ -127,20 +150,11 @@ English: The weather is lovely!
 Roish:
 ```
 
+
 # 混合模式
 
-### Role Play
 
-在 [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) 中：
-
-> Human: Act as a Linux Terminal
-
-Robot: 
-
-> ChatGPT: I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. When I need to tell you something in English, I will do so by putting text inside curly brackets {like this}. My first command is pwd
-
-
-### Multiple
+## Multiple
 
 ```
 我们来玩一个编程游戏名为 wula，一共分为五步，对应的步骤如下：
@@ -236,6 +250,17 @@ console.log(result);
 
 明白这个游戏怎么玩了吗？
 ```
+
+## Bootstrap
+
+### Case 2
+
+```
+
+> wula：创作一个新游戏名为 muji，并解释一下这个游戏："""类似于 wula，可以做简单的图形计算，如体积、面积等。这个游戏还能把解决过程解释清楚，拥有有可运行的 Python 代码，最后的输出结果是一篇文章。"""
+```
+
+![Muji Sample](images/wula-muji.png)
 
 
 ## Practise
