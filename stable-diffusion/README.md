@@ -59,5 +59,23 @@ AutoDL 镜像：https://www.codewithgpu.com/i/AUTOMATIC1111/stable-diffusion-web
 老版本（训练）：https://www.codewithgpu.com/i/CrazyBoyM/sd_dreambooth_extension_webui/dreambooth-dreamartist-for-webui
 
 
+## 
+
+### Random Prompt for Anything
+
+Prompt
+
+```
+{{dresses}}, {{masterpiece}}, best quality, illustration, {half body on a girl}, beautiful detailed blue eyes, cinematic lighting, dramatic angle, black and red hair, High ponytail, {beautiful, detailed sky}, { cinematic lighting}, High ponytail hairstyle, blue flower, earring, outdoor, Tresses of silk, in gentle breeze dance from ethereal chance. An aura of peace, in each strand of hair, beyond compare, cinematic lighting, dramatic angle,
+```
+
+Negative
+
+
+```
+obese, (ugly:1.3), (duplicate:1.3), (morbid), (mutilated), out of frame, extra fingers, mutated hands, (poorly drawn hands), (poorly drawn face), (mutation:1.3), (deformed:1.3), (amputee:1.3), blurry, bad anatomy, bad proportions, (extra limbs), cloned face, (disfigured:1.3), gross proportions, (malformed limbs), (missing arms), (missing legs), (extra arms), (extra legs), mutated hands, (fused fingers), (too many fingers), (long neck:1.3), lowres, text, error, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, black and white, monochrome, censored, empty, large breast, medium breast, breast, extract legs, 
+```
+
+
 
 
