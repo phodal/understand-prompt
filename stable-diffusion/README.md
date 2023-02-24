@@ -25,6 +25,8 @@ This is a style guide for the Stable Diffusion project. It is a living document,
 
 不推荐原因：容易丢机器（关机就没了）、镜像有时候速度慢
 
+下载数据：官方说：直接从官方下载文档不行，建议使用网盘：[https://www.autodl.com/docs/down/](https://www.autodl.com/docs/down/)。我使用的是新出的阿里云盘，当前还没有限速，上传和下载速度还不错。
+
 Stable Diffiusion WebUI 中文版本：
 
 - AutoDL 镜像：https://www.codewithgpu.com/i/AUTOMATIC1111/stable-diffusion-webui/sd-webui-230220
@@ -35,6 +37,8 @@ Stable Diffiusion WebUI 中文版本：
 
 
 ## Google Colab
+
+我使用了 Google Colab 训练了第一个版本，毕竟可以免费白嫖。
 
 DreamBooth 训练：
 
