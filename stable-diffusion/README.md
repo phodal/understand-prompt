@@ -50,4 +50,14 @@ https://colab.research.google.com/github/Linaqruf/kohya-trainer/blob/main/kohya-
 
 
 
+## 国内
+
+AutoDL 镜像：https://www.codewithgpu.com/i/AUTOMATIC1111/stable-diffusion-webui/sd-webui-230220
+
+可直接使用，就是嘛，容易丢机器
+
+老版本（训练）：https://www.codewithgpu.com/i/CrazyBoyM/sd_dreambooth_extension_webui/dreambooth-dreamartist-for-webui
+
+
+
 
