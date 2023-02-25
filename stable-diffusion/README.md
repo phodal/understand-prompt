@@ -15,7 +15,10 @@ This is a style guide for the Stable Diffusion project. It is a living document,
 	- a 3D rendering, etc. 
 2. Style：诸如于动漫（Anime）、半写实、写实、真人等等
 3. 开始模式：ZeroShot/FewShot，以获得更多的灵感
-4. 精粹 Prompt：反复尝试 Prompt、Negative Prompt
+4. 精炼 Prompt
+     - 反复尝试 Prompt
+     - 添加 Negative Prompt
+     - 使用 seed 重新运行 
 
 ## 模型训练
 
