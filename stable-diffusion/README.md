@@ -77,6 +77,10 @@ negative: (pubic hair:2), paintings, sketches, (worst quality:2), (low quality:2
 
 ### 咒语
 
+参数：
+
+Steps: 30, Sampler: DPM++ SDE Karras, CFG scale: 7, Seed: 4213714763, Size: 512x512, Model hash: 1e46fca6b5, Model: huazhongma_1000
+
 
 Prompt
 
