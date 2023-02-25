@@ -41,6 +41,8 @@ Stable Diffiusion WebUI 中文版本：
 
 ## Google Colab
 
+在线生成 Colab：https://github.com/nolanaatama/sd-1click-colab 
+
 我使用了 Google Colab 训练了第一个版本，毕竟可以免费白嫖。
 
 DreamBooth 训练：
