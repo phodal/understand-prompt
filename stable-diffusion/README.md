@@ -1,4 +1,6 @@
-# Stable Diffusion Prompt Style Guide
+# Stable Diffusion 简易指北
+
+PS：文末有恐怖片，可以滑慢一点。
 
 This is a style guide for the Stable Diffusion project. It is a living document, and will be updated as the project evolves.
 
@@ -85,3 +87,15 @@ Negative
 ```
 obese, (ugly:1.3), (duplicate:1.3), (morbid), (mutilated), out of frame, extra fingers, mutated hands, (poorly drawn hands), (poorly drawn face), (mutation:1.3), (deformed:1.3), (amputee:1.3), blurry, bad anatomy, bad proportions, (extra limbs), cloned face, (disfigured:1.3), gross proportions, (malformed limbs), (missing arms), (missing legs), (extra arms), (extra legs), mutated hands, (fused fingers), (too many fingers), (long neck:1.3), lowres, text, error, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, black and white, monochrome, censored, empty, large breast, medium breast, breast, extract legs, 
 ```
+
+## 恐怖片
+
+高分辨率（HiRes）修复失败，出现了双胞胎，还挺好玩的：
+
+![](images/hires-failure.jpeg)
+
+飞翔的头
+
+![](images/failure-flying-head.jpeg)
+
+
