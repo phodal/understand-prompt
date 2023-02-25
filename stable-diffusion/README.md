@@ -20,7 +20,17 @@ This is a style guide for the Stable Diffusion project. It is a living document,
      - 添加 Negative Prompt
      - 使用 seed 重新运行 
 
-## 模型训练
+## 安装
+
+### 本地安装
+
+直接安装 Web UI 界面，详细参见文档：[https://github.com/AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) ，对应有文档
+
+推荐插件：
+
+- 精准控线 ControlNet：https://github.com/Mikubill/sd-webui-controlnet
+- 国际化 - 中文翻译？
+- ……
 
 ### AutoDL 云服务
 
