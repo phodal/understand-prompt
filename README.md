@@ -2,12 +2,11 @@
 
 目录介绍
 
-Stable Diffusion 简易教程：[Stable Diffusion](./stable-diffusion)
-
-Jupyter 相关部分
-
-- [translate.ipynb](./translate.ipynb) 中文翻译英文
-- [codeai.ipynb](./codeai.ipynb) 代码自动生成
+- Stable Diffusion 简易教程：[Stable Diffusion](./stable-diffusion)
+- 从 AI 绘图看 AIGC 的未来
+- Jupyter 练习 AI 相关部分
+    - [translate.ipynb](./translate.ipynb) 中文翻译英文
+    - [codeai.ipynb](./codeai.ipynb) 代码自动生成
 
 PS：本文的图形部分因 “真实世界原因”，包含一些年龄受限的词汇，建议未成年人在监护人陪同下阅读。
 
