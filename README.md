@@ -1,6 +1,41 @@
 # 基于编程、绘画、写作的 AI 探索与总结
 
-目录介绍
+目录：
+
+1. [基于编程、绘画、写作的 AI 探索与总结：理解 Prompt](#%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A8%8B%E3%80%81%E7%BB%98%E7%94%BB%E3%80%81%E5%86%99%E4%BD%9C%E7%9A%84-ai-%E6%8E%A2%E7%B4%A2%E4%B8%8E%E6%80%BB%E7%BB%93%EF%BC%9A%E7%90%86%E8%A7%A3-prompt)
+   1. [图形生成：如何描述一张照片？？](#%E5%9B%BE%E5%BD%A2%E7%94%9F%E6%88%90%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E4%B8%80%E5%BC%A0%E7%85%A7%E7%89%87%EF%BC%9F%EF%BC%9F)
+      1. [文本描述：第一个示例](#%E6%96%87%E6%9C%AC%E6%8F%8F%E8%BF%B0%EF%BC%9A%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B)
+      2. [精准控图：结合 ControlNet](#%E7%B2%BE%E5%87%86%E6%8E%A7%E5%9B%BE%EF%BC%9A%E7%BB%93%E5%90%88-controlnet)
+      3. [更多的模型集：与二次元世界的照片（18 禁）](#%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%A8%A1%E5%9E%8B%E9%9B%86%EF%BC%9A%E4%B8%8E%E4%BA%8C%E6%AC%A1%E5%85%83%E4%B8%96%E7%95%8C%E7%9A%84%E7%85%A7%E7%89%87%EF%BC%8818-%E7%A6%81%EF%BC%89)
+      4. [小结](#%E5%B0%8F%E7%BB%93)
+   2. [文章：如何围绕特定主题思考？](#%E6%96%87%E7%AB%A0%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9B%B4%E7%BB%95%E7%89%B9%E5%AE%9A%E4%B8%BB%E9%A2%98%E6%80%9D%E8%80%83%EF%BC%9F)
+      1. [情境：如何用 ChatGPT 写一篇文章，以如何用 ChatGPT 写一篇文章?](#%E6%83%85%E5%A2%83%EF%BC%9A%E5%A6%82%E4%BD%95%E7%94%A8-chatgpt-%E5%86%99%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%8C%E4%BB%A5%E5%A6%82%E4%BD%95%E7%94%A8-chatgpt-%E5%86%99%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0?)
+      2. [构建更完整的上下文](#%E6%9E%84%E5%BB%BA%E6%9B%B4%E5%AE%8C%E6%95%B4%E7%9A%84%E4%B8%8A%E4%B8%8B%E6%96%87)
+      3. [构建框架（frameworks）](#%E6%9E%84%E5%BB%BA%E6%A1%86%E6%9E%B6%EF%BC%88frameworks%EF%BC%89)
+      4. [其它小建议：](#%E5%85%B6%E5%AE%83%E5%B0%8F%E5%BB%BA%E8%AE%AE%EF%BC%9A)
+   3. [代码生成：GitHub Copilot](#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%9Agithub-copilot)
+      1. [完整示例：DDD + ChatGPT + Copilot](#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B%EF%BC%9Addd-+-chatgpt-+-copilot)
+      2. [其它：代码生成开源模型](#%E5%85%B6%E5%AE%83%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%BC%80%E6%BA%90%E6%A8%A1%E5%9E%8B)
+   4. [总结：AI 就像占卜](#%E6%80%BB%E7%BB%93%EF%BC%9Aai-%E5%B0%B1%E5%83%8F%E5%8D%A0%E5%8D%9C)
+   5. [其它：Macbook Pro 的吐槽](#%E5%85%B6%E5%AE%83%EF%BC%9Amacbook-pro-%E7%9A%84%E5%90%90%E6%A7%BD)
+      1. [AI 生态不友好](#ai-%E7%94%9F%E6%80%81%E4%B8%8D%E5%8F%8B%E5%A5%BD)
+   6. [本文相关资源](#%E6%9C%AC%E6%96%87%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90)
+2. [如何利用好 AIGC ？从 AI 绘画的演进与 ChatGPT 现状出发](#%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%A5%BD-aigc-%EF%BC%9F%E4%BB%8E-ai-%E7%BB%98%E7%94%BB%E7%9A%84%E6%BC%94%E8%BF%9B%E4%B8%8E-chatgpt-%E7%8E%B0%E7%8A%B6%E5%87%BA%E5%8F%91)
+   1. [如何构建高质量的 AI 图形：精准控线 + 个人模型](#%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E9%AB%98%E8%B4%A8%E9%87%8F%E7%9A%84-ai-%E5%9B%BE%E5%BD%A2%EF%BC%9A%E7%B2%BE%E5%87%86%E6%8E%A7%E7%BA%BF-+-%E4%B8%AA%E4%BA%BA%E6%A8%A1%E5%9E%8B)
+      1. [严格化验收条件：Negative Prompt](#%E4%B8%A5%E6%A0%BC%E5%8C%96%E9%AA%8C%E6%94%B6%E6%9D%A1%E4%BB%B6%EF%BC%9Anegative-prompt)
+      2. [构架蓝图：ControlNet 精准控线](#%E6%9E%84%E6%9E%B6%E8%93%9D%E5%9B%BE%EF%BC%9Acontrolnet-%E7%B2%BE%E5%87%86%E6%8E%A7%E7%BA%BF)
+      3. [轻量小模型：DreamBooth 个人模型与风格化](#%E8%BD%BB%E9%87%8F%E5%B0%8F%E6%A8%A1%E5%9E%8B%EF%BC%9Adreambooth-%E4%B8%AA%E4%BA%BA%E6%A8%A1%E5%9E%8B%E4%B8%8E%E9%A3%8E%E6%A0%BC%E5%8C%96)
+      4. [完善与细化：局部绘制 —— InPaint 的手部修复](#%E5%AE%8C%E5%96%84%E4%B8%8E%E7%BB%86%E5%8C%96%EF%BC%9A%E5%B1%80%E9%83%A8%E7%BB%98%E5%88%B6-%E2%80%94%E2%80%94-inpaint-%E7%9A%84%E6%89%8B%E9%83%A8%E4%BF%AE%E5%A4%8D)
+      5. [小小的总结：严格化验收条件 + 构架蓝图 + 轻量小模型 + 完善与细化](#%E5%B0%8F%E5%B0%8F%E7%9A%84%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%A5%E6%A0%BC%E5%8C%96%E9%AA%8C%E6%94%B6%E6%9D%A1%E4%BB%B6-+-%E6%9E%84%E6%9E%B6%E8%93%9D%E5%9B%BE-+-%E8%BD%BB%E9%87%8F%E5%B0%8F%E6%A8%A1%E5%9E%8B-+-%E5%AE%8C%E5%96%84%E4%B8%8E%E7%BB%86%E5%8C%96)
+   2. [个人 AI 策略：构架 + 磨炼 + 小模型](#%E4%B8%AA%E4%BA%BA-ai-%E7%AD%96%E7%95%A5%EF%BC%9A%E6%9E%84%E6%9E%B6-+-%E7%A3%A8%E7%82%BC-+-%E5%B0%8F%E6%A8%A1%E5%9E%8B)
+      1. [策略 0：拥抱变化](#%E7%AD%96%E7%95%A5-0%EF%BC%9A%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96)
+      2. [策略 1：强化构架能力](#%E7%AD%96%E7%95%A5-1%EF%BC%9A%E5%BC%BA%E5%8C%96%E6%9E%84%E6%9E%B6%E8%83%BD%E5%8A%9B)
+      3. [策略 2：构建领域小模型](#%E7%AD%96%E7%95%A5-2%EF%BC%9A%E6%9E%84%E5%BB%BA%E9%A2%86%E5%9F%9F%E5%B0%8F%E6%A8%A1%E5%9E%8B)
+   3. [策略 3：探索与磨炼技巧](#%E7%AD%96%E7%95%A5-3%EF%BC%9A%E6%8E%A2%E7%B4%A2%E4%B8%8E%E7%A3%A8%E7%82%BC%E6%8A%80%E5%B7%A7)
+   4. [小结](#%E5%B0%8F%E7%BB%93)
+
+
+文件目录：
 
 - Stable Diffusion 简易教程：[Stable Diffusion](./stable-diffusion)
 - 从 AI 绘画看 AIGC 的未来
