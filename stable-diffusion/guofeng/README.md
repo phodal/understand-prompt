@@ -5,10 +5,13 @@ Negative prompt: (((simple background))),monochrome ,lowres, bad anatomy, bad ha
 Steps: 30, Sampler: Euler a, CFG scale: 7, Seed: 3416674076, Face restoration: CodeFormer, Size: 960x640, Model hash: 66d35b83b6, Model: hzmguofeng_1000, Denoising strength: 0.7, Hires upscale: 2, Hires upscaler: Latent
 
 
-
 Case 2:
 
 1girl, long_hair, solo, upper_body, china dress,dress,hair ornament, necklace, jewelry, long hair, earrings, chinese clothes,black and red hair, High ponytail, {beautiful, detailed sky}, { cinematic lighting}, High ponytail hairstyle, Tresses of silk, in gentle breeze dance from ethereal chance. An aura of peace, { arms behind back } 
 Negative prompt: (((simple background))),monochrome ,lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, lowres, bad anatomy, bad hands, text, error, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, ugly,pregnant,vore,duplicate,morbid,mut ilated,tran nsexual, hermaphrodite,long neck,mutated hands,poorly drawn hands,poorly drawn face,mutation,deformed,blurry,bad anatomy,bad proportions,malformed limbs,extra limbs,cloned face,disfigured,gross proportions, (((missing arms))),(((missing legs))), (((extra arms))),(((extra legs))),pubic hair, plump,bad legs,error legs,username,blurry,bad feet,medium breasts, large breasts, large breasts, 
 Steps: 30, Sampler: Euler a, CFG scale: 7, Seed: 3416674061, Face restoration: CodeFormer, Size: 960x640, Model hash: 66d35b83b6, Model: hzmguofeng_1000, Denoising strength: 0.7, Hires upscale: 2, Hires upscaler: Latent
+
+General:
+
+particle effects small breasts, 1 girl, solo, {{masterpiece}}, {best quality},{highres}, original, extremely detailed 8K wallpaper,  greasy skin, realistic and delicate facial features, slim waist, overexposure,ultra-detailed,illustration,incredibly_absurdres,ray tracing,intricate detail, colored tips,colored inner hair,aquagradient eyes,gradient eyes,eyelashes,finely detail, depth of field, n gentle breeze dance from ethereal chance. An aura of peace,beyond compare, cinematic lighting, dramatic angle,  <hypernet:yueju_huadan:1>, upper body
 
