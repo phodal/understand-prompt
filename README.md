@@ -1,5 +1,7 @@
 # 基于编程、绘画、写作的 AI 探索与总结
 
+欢迎使用集成了这些模式的工具：https://github.com/prompt-engineering/click-prompt
+
 目录：
 
 1. [理解 Prompt](#%E5%9F%BA%E4%BA%8E%E7%BC%96%E7%A8%8B%E3%80%81%E7%BB%98%E7%94%BB%E3%80%81%E5%86%99%E4%BD%9C%E7%9A%84-ai-%E6%8E%A2%E7%B4%A2%E4%B8%8E%E6%80%BB%E7%BB%93%EF%BC%9A%E7%90%86%E8%A7%A3-prompt)
