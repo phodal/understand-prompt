@@ -100,13 +100,13 @@ process MyProcess {
 ```
 
 
-帮我设计一个 DSL 来表示一个系统的处理流程，要求：
+帮我设计一个 DSL 来表示一个系统，要求：
 
-1. 使用领域驱动设计的思考。
-2. 包含编程相关的元素，如类、包、方法等。
+1. 使用领域驱动设计的思想。
+2. 能体现出业务信息。
+3. 包含编程相关的元素，如类、包、方法等。
 
-只返回这个 DSL，并在 DSL 中添加 注释
-
+只返回这个 DSL，并在 DSL 中添加注释。
 
 ```javascript
 //定义一个处理流程，包含多个步骤
@@ -323,58 +323,57 @@ class LoginCode extends Code {
   }
 }
 
-class CreateBlogCode extends
 class CreateBlogCode extends Code {
-override def execute(inputs: Map[String, Any]): Map[String, Any] = {
-val title = inputs("title").asInstanceOf[String]
-val content = inputs("content").asInstanceOf[String]
-val author = inputs("author").asInstanceOf[User]
-val blog = Blog(title, content, author)
-Map("blog" -> blog)
-}
+	override def execute(inputs: Map[String, Any]): Map[String, Any] = {
+		val title = inputs("title").asInstanceOf[String]
+		val content = inputs("content").asInstanceOf[String]
+		val author = inputs("author").asInstanceOf[User]
+		val blog = Blog(title, content, author)
+		Map("blog" -> blog)
+	}
 }
 
 class EditBlogCode extends Code {
-override def execute(inputs: Map[String, Any]): Map[String, Any] = {
-val blog = inputs("blog").asInstanceOf[Blog]
-val title = inputs("title").asInstanceOf[String]
-val content = inputs("content").asInstanceOf[String]
-val author = inputs("author").asInstanceOf[User]
-//检查博客是否属于该用户
-if (blog.author == author) {
-val editedBlog = Blog(title, content, author)
-Map("blog" -> editedBlog)
-} else {
-throw new Exception("You do not have permission to edit this blog.")
-}
-}
+	override def execute(inputs: Map[String, Any]): Map[String, Any] = {
+		val blog = inputs("blog").asInstanceOf[Blog]
+		val title = inputs("title").asInstanceOf[String]
+		val content = inputs("content").asInstanceOf[String]
+		val author = inputs("author").asInstanceOf[User]
+		//检查博客是否属于该用户
+		if (blog.author == author) {
+			val editedBlog = Blog(title, content, author)
+			Map("blog" -> editedBlog)
+		} else {
+			throw new Exception("You do not have permission to edit this blog.")
+		}
+	}
 }
 
 class DeleteBlogCode extends Code {
-override def execute(inputs: Map[String, Any]): Map[String, Any] = {
-val blog = inputs("blog").asInstanceOf[Blog]
-val author = inputs("author").asInstanceOf[User]
-//检查博客是否属于该用户
-if (blog.author == author) {
-//删除博客
-deleteBlog(blog)
-Map()
-} else {
-throw new Exception("You do not have permission to delete this blog.")
-}
-}
+	override def execute(inputs: Map[String, Any]): Map[String, Any] = {
+		val blog = inputs("blog").asInstanceOf[Blog]
+		val author = inputs("author").asInstanceOf[User]
+		//检查博客是否属于该用户
+		if (blog.author == author) {
+			//删除博客
+			deleteBlog(blog)
+			Map()
+		} else {
+			throw new Exception("You do not have permission to delete this blog.")
+		}
+	}
 }
 
 class CommentBlogCode extends Code {
 override def execute(inputs: Map[String, Any]): Map[String, Any] = {
-val blog = inputs("blog").asInstanceOf[Blog]
-val content = inputs("content").asInstanceOf[String]
-val author = inputs("author").asInstanceOf[User]
-val comment = Comment(content, author)
-//添加评论到博客
-addCommentToBlog(blog, comment)
-Map("comment" -> comment)
-}
+	val blog = inputs("blog").asInstanceOf[Blog]
+		val content = inputs("content").asInstanceOf[String]
+		val author = inputs("author").asInstanceOf[User]
+		val comment = Comment(content, author)
+		//添加评论到博客
+		addCommentToBlog(blog, comment)
+		Map("comment" -> comment)
+	}
 }
 ```
 
@@ -382,5 +381,237 @@ Map("comment" -> comment)
 
 
 
+```javascript
+DSL Blog System {
+  Register {
+    Input: Name(String), Email(String), Password(String)
+    Output: User
+    Execution: Create a user with the given name, email, and password
+  }
 
+  Login {
+    Input: Email(String), Password(String)
+    Output: User
+    Execution: Find a user with the given email and password
+  }
+
+  Create Blog {
+    Input: Title(String), Content(String), Author(User)
+    Output: Blog
+    Execution: Create a blog post with the given title, content, and author
+  }
+
+  Edit Blog {
+    Input: Blog(Blog), Title(String), Content(String), Author(User)
+    Output: Blog
+    Execution: If the blog post belongs to the given author, update it with the given title and content; otherwise, throw an exception
+  }
+
+  Delete Blog {
+    Input: Blog(Blog), Author(User)
+    Output: None
+    Execution: If the blog post belongs to the given author, delete it; otherwise, throw an exception
+  }
+
+  Comment on Blog {
+    Input: Blog(Blog), Content(String), Author(User)
+    Output: Comment
+    Execution: Add a comment with the given content to the blog post
+  }
+}
+```
+
+
+抽象结果：
+
+```scala
+DSL <system name> {
+  <step 1 name> {
+    Input: <input 1 type> <input 1 name>, <input 2 type> <input 2 name>, ...
+    Output: <output type>
+    Execution: <execution logic>
+  }
+
+  <step 2 name> {
+    Input: <input 1 type> <input 1 name>, <input 2 type> <input 2 name>, ...
+    Output: <output type>
+    Execution: <execution logic>
+  }
+
+  ...
+
+  <step n name> {
+    Input: <input 1 type> <input 1 name>, <input 2 type> <input 2 name>, ...
+    Output: <output type>
+    Execution: <execution logic>
+  }
+}
+```
+
+
+## 结果
+
+帮我设计一个 DSL 来表示一个系统，要求：需要呈现业务处理过程。返回的结果只返回这个 DSL 的抽象。
+
+
+为了设计一个 DSL 来表示一个系统的业务处理过程，需要考虑以下要素：
+
+1. 业务实体和其属性
+2. 业务操作和其参数
+3. 业务流程和其步骤
+4. 数据存储和其结构
+
+基于上述要素，我们可以设计如下的 DSL：
+
+```yaml
+System {
+  Entities {
+    Entity1 {
+      Property1: Type1
+      Property2: Type2
+      ...
+    }
+    Entity2 {
+      Property1: Type1
+      Property2: Type2
+      ...
+    }
+    ...
+  }
+  
+  Operations {
+    Operation1(entity: Entity1, param1: Type1, param2: Type2) -> ReturnType1
+    Operation2(entity: Entity2, param1: Type1, param2: Type2) -> ReturnType2
+    ...
+  }
+  
+  Processes {
+    Process1 {
+      Step1: Operation1(entity1, param1, param2)
+      Step2: Operation2(entity2, param1, param2)
+      ...
+    }
+    Process2 {
+      Step1: Operation1(entity1, param1, param2)
+      Step2: Operation2(entity2, param1, param2)
+      ...
+    }
+    ...
+  }
+  
+  DataStorage {
+    Table1 {
+      Column1: Type1
+      Column2: Type2
+      ...
+    }
+    Table2 {
+      Column1: Type1
+      Column2: Type2
+      ...
+    }
+    ...
+  }
+}
+```
+
+以上 DSL 中，我们首先定义了系统（System）的各个组成部分，包括实体（Entities）、操作（Operations）、流程（Processes）和数据存储（DataStorage）。
+
+在实体（Entities）中，我们可以定义每个实体的属性（Property）和对应的数据类型（Type）。
+
+在操作（Operations）中，我们可以定义每个操作的输入参数和输出结果的数据类型，并指定对应的实体。
+
+在流程（Processes）中，我们可以定义一系列步骤（Step），每个步骤可以对应一个操作，并指定对应的实体和参数。
+
+在数据存储（DataStorage）中，我们可以定义数据表（Table），每个数据表包含若干列（Column）和对应的数据类型。
+
+通过以上 DSL，我们可以清晰地呈现系统的业务处理过程，并且只返回其抽象，便于后续进一步开发和实现。
+
+
+重新设计：
+
+```
+System {
+  Entities {
+    User {
+      id: Int
+      username: String
+      email: String
+      password: String
+      posts: [Post]
+    }
+    
+    Post {
+      id: Int
+      title: String
+      content: String
+      author: User
+      comments: [Comment]
+    }
+    
+    Comment {
+      id: Int
+      content: String
+      author: User
+      post: Post
+    }
+  }
+  
+  Operations {
+    RegisterUser(username: String, email: String, password: String) -> User
+    LoginUser(email: String, password: String) -> User
+    CreatePost(author: User, title: String, content: String) -> Post
+    GetPostById(id: Int) -> Post
+    AddComment(author: User, post: Post, content: String) -> Comment
+  }
+  
+  Processes {
+    PublishPost {
+      Step1: LoginUser(email, password)
+      Step2: CreatePost(author, title, content)
+    }
+    
+    ViewPost {
+      Step1: GetPostById(id)
+    }
+    
+    CommentOnPost {
+      Step1: LoginUser(email, password)
+      Step2: GetPostById(id)
+      Step3: AddComment(author, post, content)
+    }
+  }
+  
+  DataStorage {
+    User {
+      id: Int
+      username: String
+      email: String
+      password: String
+    }
+    
+    Post {
+      id: Int
+      title: String
+      content: String
+      author_id: Int
+    }
+    
+    Comment {
+      id: Int
+      content: String
+      author_id: Int
+      post_id: Int
+    }
+  }
+}
+```
+
+以上 DSL 描述的博客系统包含三个实体：User、Post 和 Comment，分别表示用户、文章和评论。其中 User 实体包含一对多的关系到 Post 实体，Post 实体包含一对多的关系到 Comment 实体。
+
+博客系统的操作包括注册用户、登录用户、创建文章、获取文章和添加评论。通过这些操作，用户可以在博客系统中进行文章的发布、查看和评论。
+
+博客系统中的流程包括发布文章、查看文章和评论文章。通过这些流程，用户可以方便地完成博客系统中的常见操作。
+
+博客系统的数据存储包括三个表：User、Post 和 Comment，分别存储用户、文章和评论的相关信息。其中，Post 表包含一个外键 author_id，指向 User 表中的相应记录；Comment 表包含两个外键 author_id 和 post_id，分别指向 User 表和 Post 表中的相应记录。
 
