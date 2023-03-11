@@ -615,3 +615,339 @@ System {
 
 博客系统的数据存储包括三个表：User、Post 和 Comment，分别存储用户、文章和评论的相关信息。其中，Post 表包含一个外键 author_id，指向 User 表中的相应记录；Comment 表包含两个外键 author_id 和 post_id，分别指向 User 表和 Post 表中的相应记录。
 
+
+## 还是不太理想，回到上一个版本，添加一个先验条件和后验条件吧
+
+```
+System {
+  Entities {
+    User {
+      id: Int
+      username: String
+      email: String
+      password: String
+      posts: [Post]
+    }
+    
+    Post {
+      id: Int
+      title: String
+      content: String
+      author: User
+      comments: [Comment]
+    }
+    
+    Comment {
+      id: Int
+      content: String
+      author: User
+      post: Post
+    }
+  }
+  
+  Operations {
+    RegisterUser(username: String, email: String, password: String) -> User
+      Input: username, email, password
+      Output: a new user record
+      Precondition: email is not already registered
+      
+    LoginUser(email: String, password: String) -> User
+      Input: email, password
+      Output: a user record with the given email and password
+      Precondition: email and password are valid
+      Postcondition: the user is marked as logged in
+      
+    CreatePost(author: User, title: String, content: String) -> Post
+      Input: author, title, content
+      Output: a new post record
+      Precondition: the author is logged in
+      
+    GetPostById(id: Int) -> Post
+      Input: id
+      Output: a post record with the given ID
+      
+    AddComment(author: User, post: Post, content: String) -> Comment
+      Input: author, post, content
+      Output: a new comment record
+      Precondition: the author is logged in
+  }
+  
+  Processes {
+    PublishPost {
+      Step1: LoginUser(email, password)
+        Input: email, password
+        Output: a user record with the given email and password
+        Precondition: email and password are valid
+        Postcondition: the user is marked as logged in
+      Step2: CreatePost(author, title, content)
+        Input: author, title, content
+        Output: a new post record
+        Precondition: the author is logged in
+    }
+    
+    ViewPost {
+      Step1: GetPostById(id)
+        Input: id
+        Output: a post record with the given ID
+    }
+    
+    CommentOnPost {
+      Step1: LoginUser(email, password)
+        Input: email, password
+        Output: a user record with the given email and password
+        Precondition: email and password are valid
+        Postcondition: the user is marked as logged in
+      Step2: GetPostById(id)
+        Input: id
+        Output: a post record with the given ID
+      Step3: AddComment(author, post, content)
+        Input: author, post, content
+        Output: a new comment record
+        Precondition: the author is logged in
+    }
+  }
+  
+  DataStorage {
+    User {
+      id: Int
+      username: String
+      email: String
+      password: String
+    }
+    
+    Post {
+      id: Int
+      title: String
+      content: String
+      author_id: Int
+    }
+    
+    Comment {
+      id: Int
+      content: String
+      author_id: Int
+      post_id: Int
+    }
+  }
+}
+
+```
+
+最后版本：
+
+```
+System("Blog System") {
+  Entities {
+    User {
+      id: Int
+      username: String
+      email: String
+      password: String
+      posts: [Post]?
+    }
+
+    Post {
+      id: Int
+      title: String
+      content: String
+      author: User
+      comments: [Comment]?
+    }
+
+    Comment {
+      id: Int
+      content: String
+      author: User
+      post: Post
+    }
+  }
+
+  Operations {
+    RegisterUser(username: String, email: String, password: String) -> User
+      Input: username: String, email: String, password: String
+      Output: a new user record: User
+      // The email must not already be registered in the system.
+      Precondition: email is not already registered
+
+    LoginUser(email: String, password: String) -> User
+      Input: email: String, password: String
+      Output: a user record with the given email and password: User
+      // The email and password must be valid.
+      Precondition: email and password are valid
+      // The user is marked as logged in after this operation.
+      Postcondition: the user is marked as logged in
+
+    CreatePost(author: User, title: String, content: String) -> Post
+      Input: author: User, title: String, content: String
+      Output: a new post record: Post
+      // The author must be logged in to create a post.
+      Precondition: the author is logged in
+
+    GetPostById(id: Int) -> Post
+      Input: id: Int
+      Output: a post record with the given ID: Post
+
+    AddComment(author: User, post: Post, content: String) -> Comment
+      Input: author: User, post: Post, content: String
+      Output: a new comment record: Comment
+      // The author must be logged in to add a comment.
+      Precondition: the author is logged in
+  }
+
+  API {
+    POST "/register_user" RegisterUser
+    POST "/login_user" LoginUser
+    POST "/create_post" CreatePost
+    GET "/post/:id" GetPostById
+    POST "/add_comment" AddComment
+  }
+}
+```
+
+抽象：
+
+```
+System(name: String) {
+  Entity(name: String) {
+    attribute1: Type1
+    attribute2: Type2
+    ...
+    attributeN: TypeN
+    relation1: [Entity1]?
+    relation2: [Entity2]?
+    ...
+    relationM: [EntityM]?
+  }
+  Operation(name: String, input: [(name: String, type: Type)], output: Type) {
+    Input: input1: Type1, input2: Type2, ..., inputN: TypeN
+    Output: ReturnType1
+    Precondition: precondition1
+    ...
+    Precondition: preconditionM
+    Postcondition: postcondition1
+    ...
+    Postcondition: postconditionK
+  }
+  API {
+    Route(path: String, operation: Operation)
+  }
+}
+```
+
+
+## Q3
+
+使用 TypeScript 的类型来描述这个 DSL，并添加一个简单的类型系统，不使用 TypeScript 自带的类型： """Entity(name: String) {
+  attribute1: Type1
+  attribute2: Type2
+  ...
+  attributeN: TypeN
+  relation1: [Entity1]?
+  relation2: [Entity2]?
+  ...
+  relationM: [EntityM]?
+}
+
+Operation(name: String, input: [(name: String, type: Type)], output: Type) {
+  Input: input1: Type1, input2: Type2, ..., inputN: TypeN
+  Output: ReturnType1
+  Precondition: precondition1
+  ...
+  Precondition: preconditionM
+  Postcondition: postcondition1
+  ...
+  Postcondition: postconditionK
+}
+
+API {
+  Route(path: String, operation: Operation)
+}
+"""
+
+最终的类型系统：
+
+
+```
+// 定义一个 Entity 类型
+type Entity = {
+  name: string;
+  attributes: {
+    [attributeName: string]: Type;
+  };
+  relations: {
+    [relationName: string]: Entity[];
+  };
+};
+
+// 定义一个 Operation 类型
+type Operation = {
+  name: string;
+  input: {
+    name: string;
+    type: Type;
+  }[];
+  output: Type;
+  inputVariables: {
+    [variableName: string]: Type;
+  };
+  preconditions: string[];
+  postconditions: string[];
+};
+
+// 定义一个 API 类型
+type API = {
+  routes: {
+    path: string;
+    operation: Operation;
+  }[];
+};
+```
+
+
+下面是使用 TypeScript 的类型来描述该 DSL 的示例：
+
+typescript
+
+// 定义一个 Entity 类型
+type Entity = {
+  name: string;
+  attributes: {
+    [attributeName: string]: Type;
+  };
+  relations: {
+    [relationName: string]: Entity[];
+  };
+};
+
+// 定义一个 Operation 类型
+type Operation = {
+  name: string;
+  input: {
+    name: string;
+    type: Type;
+  }[];
+  output: Type;
+  inputVariables: {
+    [variableName: string]: Type;
+  };
+  preconditions: string[];
+  postconditions: string[];
+};
+
+// 定义一个 API 类型
+type API = {
+  routes: {
+    path: string;
+    operation: Operation;
+  }[];
+};
+
+这个类型系统的思路是，我们首先定义了每个 DSL 元素的类型：Entity、Operation 和 API。然后，对于每个类型，我们使用 TypeScript 的类型来描述它们的结构。
+
+例如，对于 Entity 类型，我们定义了一个对象，它有 name、attributes 和 relations 属性。其中，attributes 是一个字符串索引类型，它将属性名称映射到属性类型；relations 也是一个字符串索引类型，它将关系名称映射到关联的实体数组。
+
+对于 Operation 类型，我们定义了一个对象，它有 name、input、output、inputVariables、preconditions 和 postconditions 属性。其中，input 是一个包含输入参数名称和类型的对象数组；inputVariables 是一个字符串索引类型，它将变量名称映射到变量类型；preconditions 和 postconditions 是字符串数组，它们表示操作的前置条件和后置条件。
+
+最后，对于 API 类型，我们定义了一个对象，它有一个 routes 属性，它是一个包含路径和操作的对象数组。
+
+需要注意的是，这个类型系统并没有使用 TypeScript 自带的类型，而是自定义了一些类型。这是因为 DSL 的语法和语义可能与 TypeScript 的类型系统不完全匹配，因此需要根据 DSL 的具体情况来自定义类型。
