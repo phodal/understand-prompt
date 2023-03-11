@@ -1,4 +1,4 @@
-# 基于编程、绘画、写作的 AI 探索与总结
+# 理解 Prompt：基于编程、绘画、写作的 AI 探索与总结
 
 欢迎使用集成了这些模式的工具：https://github.com/prompt-engineering/click-prompt
 
