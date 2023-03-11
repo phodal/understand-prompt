@@ -837,7 +837,11 @@ System(name: String) {
 
 ## Q3
 
-使用 TypeScript 的类型来描述这个 DSL，并添加一个简单的类型系统，不使用 TypeScript 自带的类型： """Entity(name: String) {
+使用 TypeScript 的类型来描述这个 DSL，并添加一个简单的类型系统，不使用 TypeScript 自带的类型： 
+
+"""
+
+Entity(name: String) {
   attribute1: Type1
   attribute2: Type2
   ...
@@ -951,3 +955,85 @@ type API = {
 最后，对于 API 类型，我们定义了一个对象，它有一个 routes 属性，它是一个包含路径和操作的对象数组。
 
 需要注意的是，这个类型系统并没有使用 TypeScript 自带的类型，而是自定义了一些类型。这是因为 DSL 的语法和语义可能与 TypeScript 的类型系统不完全匹配，因此需要根据 DSL 的具体情况来自定义类型。
+
+## 能使用 JavaScript 脚本来动态创建这样的类型吗？
+
+
+可以使用 JavaScript 脚本动态创建这样的类型。由于 TypeScript 是 JavaScript 的超集，可以使用 TypeScript 的编译器 API 来创建和生成 TypeScript 类型。
+
+以下是一个示例脚本，该脚本动态创建了与上面 TypeScript 类型相同的类型，并将其打印到控制台：
+
+
+
+## 测试
+
+
+使用如下的 DSL 描述一个在线系统：
+
+"""
+System(name: String) {
+  Entity(name: String) {
+    attribute1: Type1
+    attribute2: Type2
+    ...
+    attributeN: TypeN
+    relation1: [Entity1]?
+    relation2: [Entity2]?
+    ...
+    relationM: [EntityM]?
+  }
+  Operation(name: String, input: [(name: String, type: Type)], output: Type) {
+    Input: input1: Type1, input2: Type2, ..., inputN: TypeN
+    Output: ReturnType1
+    Precondition: precondition1
+    ...
+    Precondition: preconditionM
+    Postcondition: postcondition1
+    ...
+    Postcondition: postconditionK
+  }
+  API {
+    Route(path: String, operation: Operation)
+  }
+}
+"""
+
+
+并只返回其中的 Entity 部分，只返回其中的 Entity 部分。
+
+
+### 拆解
+
+- 列出所有 Entity，每 10 个返回
+- 列出所有的 Operation
+- 列出所有的 API。
+
+
+设计一个在线商城系统，要求如下：
+
+1. 这个商城需要这些场景：商品浏览、订单管理、地址管理，你需要补充场景。
+2. 示例输出格式如下：
+
+"""
+```
+System("BlogSystem") {
+  Entities {
+    Blog { title: string, ..., comments: [Comment]? },
+    Comment { ...}
+  }
+  Operation {
+    Ops("CreateBlog", { 
+    	in: { title: string, description: string },
+    	out: { id: number }
+    	pre: title is unique and (title.length > 5 && title.length < 120)
+    	post: id is not null
+    }) 
+  }
+  API {
+    Route(path: String, method: HttpMethod operation: Operation)
+  }
+}
+```
+"""
+
+
